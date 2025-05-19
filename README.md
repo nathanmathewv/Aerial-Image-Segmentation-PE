@@ -29,7 +29,7 @@ This model divides images into smaller patches, allowing the CNN to focus on loc
 
 ### 3. Res2UNet
 
-Integrates the deep residual learning capabilities of ResNet with the encoder-decoder structure of U-Net. This fusion aims to improve feature propagation and segmentation accuracy.([eshansurendra.github.io][1])
+Integrates the deep residual learning capabilities of ResNet with the encoder-decoder structure of U-Net. This fusion aims to improve feature propagation and segmentation accuracy.
 
 ### 4. Stacked U-Net for Building Extraction
 
