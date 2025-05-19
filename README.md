@@ -19,9 +19,6 @@ This repository contains a suite of deep learning models tailored for segmenting
 * [`UNet_ECBA/`](./UNet_ECBA)
   U-Net augmented with Efficient Channel and Batch Attention modules.
 
-* `README.md`
-  Repository overview and documentation (this file).
-
 ---
 
 ## Model Descriptions
