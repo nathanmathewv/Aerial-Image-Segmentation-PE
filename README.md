@@ -39,11 +39,11 @@ Divides large satellite images into patches (e.g., 224×224) and trains a CNN to
 
 Uses a cascade of U-Net models where each stage refines the output of the previous one. Particularly useful in accurately delineating dense building clusters. It also has a single UNet implementation too.
 
-### Single UNet
+### Single U-Net
 * **Mean IoU Score**: `0.6658`
 * **Mean Dice Loss**: `0.6948`
 
-### Stacked UNet
+### Stacked U-Net
 * **Mean IoU Score**: `0.4876`
 * **Mean Dice Loss**: `-0.3937`
 
