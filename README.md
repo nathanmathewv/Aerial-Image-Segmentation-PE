@@ -35,17 +35,6 @@ Divides large satellite images into patches (e.g., 224×224) and trains a CNN to
 
 ---
 
-### Res2UNet — Top Performer
-
-Integrates ResNet-style residual blocks into the U-Net architecture, enabling better gradient flow and multi-scale feature learning.
-
-* **Mean IoU Score**: `0.7138`
-* **Mean Dice Loss**: `0.3820`
-
-Excels at extracting both road and building structures due to its strong representation capacity.
-
----
-
 ### Stacked U-Net for Building Extraction
 
 Uses a cascade of U-Net models where each stage refines the output of the previous one. Particularly useful in accurately delineating dense building clusters. It also has a single UNet implementation too.
@@ -57,6 +46,17 @@ Uses a cascade of U-Net models where each stage refines the output of the previo
 ### Stacked UNet
 * **Mean IoU Score**: `0.4876`
 * **Mean Dice Loss**: `-0.3937`
+
+---
+
+### Res2UNet — Top Performer
+
+Integrates ResNet-style residual blocks into the U-Net architecture, enabling better gradient flow and multi-scale feature learning.
+
+* **Mean IoU Score**: `0.7138`
+* **Mean Dice Loss**: `0.3820`
+
+Excels at extracting both road and building structures due to its strong representation capacity.
 
 ---
 
