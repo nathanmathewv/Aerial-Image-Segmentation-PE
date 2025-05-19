@@ -1,86 +1,111 @@
-# Aerial-Image-Segmentation-PE
-
-Here's a comprehensive README for the GitHub repository [Aerial-Image-Segmentation-PE](https://github.com/nathanmathewv/Aerial-Image-Segmentation-PE), which focuses on segmenting buildings and roads from satellite imagery using various deep learning models.
+Here is the updated `README.md` in Markdown format, now including information about the best-performing models and their evaluation metrics:
 
 ---
 
 # Aerial Image Segmentation for Buildings and Roads
 
-A collection of deep learning models designed to predict and segment buildings and roads from satellite imagery. This repository includes multiple architectures, each exploring different methodologies to enhance segmentation accuracy.
+This repository contains a suite of deep learning models tailored for segmenting **buildings** and **roads** from high-resolution satellite imagery. Each model explores different techniques, from classical unsupervised methods to attention-based CNN architectures, to improve segmentation quality.
 
 ## 📁 Repository Structure
 
-* `K-Means-Clustering/`: Applies K-Means clustering for unsupervised segmentation.
-* `Patched-Based CNN/`: Implements a CNN trained on image patches for localized feature learning.
-* `Res2UNet/`: Combines ResNet and U-Net architectures to leverage deep residual learning for segmentation.
-* `Stacked-UNet-Building-Extraction/`: Utilizes a stacked U-Net approach specifically tailored for building extraction.
-* `UNet_ECBA/`: Enhances the traditional U-Net with Efficient Channel and Batch Attention mechanisms.
-* `README.md`: Provides an overview and details about the repository.
+* [`K-Means-Clustering/`](./K-Means-Clustering)
+  Unsupervised clustering-based segmentation.
 
-## Model Descriptions
+* [`Patched-Based CNN/`](./Patched-Based%20CNN)
+  Supervised CNN trained on localized patches from satellite images.
 
-### 1. K-Means Clustering
+* [`Res2UNet/`](./Res2UNet)
+  A deep residual variant of U-Net designed for enhanced feature learning.
 
-An unsupervised learning approach that segments images based on pixel intensity similarities. While simple, it serves as a baseline for comparison with more complex models.
+* [`Stacked-UNet-Building-Extraction/`](./Stacked-UNet-Building-Extraction)
+  Multi-stage refinement using stacked U-Nets for building extraction.
 
-### 2. Patch-Based CNN
+* [`UNet_ECBA/`](./UNet_ECBA)
+  U-Net augmented with Efficient Channel and Batch Attention modules.
 
-This model divides images into smaller patches, allowing the CNN to focus on localized features. Such an approach can capture fine-grained details, especially useful in heterogeneous regions.
-
-### 3. Res2UNet
-
-Integrates the deep residual learning capabilities of ResNet with the encoder-decoder structure of U-Net. This fusion aims to improve feature propagation and segmentation accuracy.
-
-### 4. Stacked U-Net for Building Extraction
-
-Employs multiple U-Net models stacked sequentially, refining the segmentation output at each stage. This iterative enhancement is particularly effective for delineating building structures.
-
-### 5. U-Net with ECBA Attention
-
-Augments the standard U-Net with Efficient Channel and Batch Attention modules, enabling the model to focus on more informative features and improving segmentation performance.
-
-## Dataset
-
-The models are trained and evaluated on satellite imagery datasets annotated for building and road segmentation. Specific dataset details, including sources and preprocessing steps, are provided within each model's directory.
-
-## Getting Started
-
-1. **Clone the Repository:**
-
-   ```bash
-   git clone https://github.com/nathanmathewv/Aerial-Image-Segmentation-PE.git
-   ```
-
-
-
-2. **Navigate to a Model Directory:**
-
-   ```bash
-   cd Aerial-Image-Segmentation-PE/Res2UNet
-   ```
-
-
-
-3. **Install Dependencies:**
-
-   Each model may have its own set of dependencies. Refer to the `requirements.txt` or documentation within the specific model directory.
-
-4. **Train or Evaluate the Model:**
-
-   Follow the instructions provided in the respective model's README or scripts to train or evaluate the model.
-
-## Evaluation Metrics
-
-Models are assessed using standard segmentation metrics:
-
-* **Accuracy:** Proportion of correctly classified pixels.
-* **Intersection over Union (IoU):** Measures the overlap between predicted and ground truth segments.
-* **Dice Coefficient:** Harmonic mean of precision and recall, emphasizing the accuracy of positive class predictions.([Medium][2])
+* `README.md`
+  Repository overview and documentation (this file).
 
 ---
 
-*Note: For detailed information on each model, including training procedures and results, refer to the README files within the respective model directories.*
+## Model Descriptions
 
-[1]: https://eshansurendra.github.io/projects/aerialseg/?utm_source=chatgpt.com "Semantic segmentation of aerial imagery using U-Net | Eshan Surendra"
-[2]: https://medium.com/%40rehman.aimal/aerial-semantic-segmentation-using-u-net-deep-learning-model-3356a53c915f?utm_source=chatgpt.com "Aerial Semantic Segmentation using U-Net Deep Learning Model | by Aimal Rehman | Medium"
-[3]: https://github.com/eshansurendra/AerialSeg-U-Net?utm_source=chatgpt.com "GitHub - eshansurendra/AerialSeg-U-Net: Repository for semantic segmentation of aerial imagery using U-Net, featuring training scripts, data preprocessing, and model evaluation."
+### K-Means Clustering
+
+A baseline unsupervised segmentation model using K-means clustering on pixel intensity. Quick to set up, but lacks spatial awareness or learning capability.
+
+---
+
+### Patch-Based CNN
+
+Divides large satellite images into patches (e.g., 224×224) and trains a CNN to classify each pixel in the patch. Offers localized learning, useful for areas with fine-grained structure or inconsistent textures.
+
+---
+
+### Res2UNet — Top Performer
+
+Integrates ResNet-style residual blocks into the U-Net architecture, enabling better gradient flow and multi-scale feature learning.
+
+* **Mean IoU Score**: `0.7138`
+* **Mean Dice Loss**: `0.3820`
+
+Excels at extracting both road and building structures due to its strong representation capacity.
+
+---
+
+### Stacked U-Net for Building Extraction
+
+Uses a cascade of U-Net models where each stage refines the output of the previous one. Particularly useful in accurately delineating dense building clusters. It also has a single UNet implementation too.
+
+### Single UNet
+* **Mean IoU Score**: `0.6658`
+* **Mean Dice Loss**: `0.6948`
+
+### Stacked UNet
+* **Mean IoU Score**: `0.4876`
+* **Mean Dice Loss**: `-0.3937`
+
+---
+
+### U-Net with ECBA Attention — Best Performer
+
+Combines U-Net with ECBA (Efficient Channel and Batch Attention) modules. These attention mechanisms allow the model to focus on the most informative spatial and channel features.
+
+* **Mean IoU Score**: `0.7866`
+* **Mean Dice Loss**: `0.4683`
+
+Outperformed all other models in this repository on test data, offering a powerful balance between precision and generalization.
+
+---
+
+## Evaluation Metrics
+
+All models are evaluated using:
+
+* **Intersection over Union (IoU)**: Measures overlap between prediction and ground truth.
+* **Dice Loss**: A loss function derived from the Dice coefficient (1 - Dice Score), emphasizing segmentation accuracy of foreground objects.
+
+---
+
+## Dataset
+
+Each model is trained and tested on aerial imagery datasets containing ground-truth masks for buildings and roads. Details on preprocessing, splits, and dataset structures are available within each model directory.
+
+---
+
+## Getting Started
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/nathanmathewv/Aerial-Image-Segmentation-PE.git
+   cd Aerial-Image-Segmentation-PE
+   ```
+
+2. **Navigate to a model directory:**
+
+   ```bash
+   cd Res2UNet
+   ```
+
+3. **Train/Evaluate** the model by following the instructions in the corresponding folder.
