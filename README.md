@@ -37,11 +37,11 @@ Employs multiple U-Net models stacked sequentially, refining the segmentation ou
 
 ### 5. U-Net with ECBA Attention
 
-Augments the standard U-Net with Efficient Channel and Batch Attention modules, enabling the model to focus on more informative features and improving segmentation performance.([eshansurendra.github.io][1])
+Augments the standard U-Net with Efficient Channel and Batch Attention modules, enabling the model to focus on more informative features and improving segmentation performance.
 
 ## Dataset
 
-The models are trained and evaluated on satellite imagery datasets annotated for building and road segmentation. Specific dataset details, including sources and preprocessing steps, are provided within each model's directory.([eshansurendra.github.io][1])
+The models are trained and evaluated on satellite imagery datasets annotated for building and road segmentation. Specific dataset details, including sources and preprocessing steps, are provided within each model's directory.
 
 ## Getting Started
 
