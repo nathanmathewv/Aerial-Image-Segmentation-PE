@@ -1,7 +1,3 @@
-Here is the updated `README.md` in Markdown format, now including information about the best-performing models and their evaluation metrics:
-
----
-
 # Aerial Image Segmentation for Buildings and Roads
 
 This repository contains a suite of deep learning models tailored for segmenting **buildings** and **roads** from high-resolution satellite imagery. Each model explores different techniques, from classical unsupervised methods to attention-based CNN architectures, to improve segmentation quality.
