@@ -10,11 +10,11 @@ This repository contains a suite of deep learning models tailored for segmenting
 * [`Patched-Based CNN/`](./Patched-Based%20CNN)
   Supervised CNN trained on localized patches from satellite images.
 
-* [`Res2UNet/`](./Res2UNet)
-  A deep residual variant of U-Net designed for enhanced feature learning.
-
 * [`Stacked-UNet-Building-Extraction/`](./Stacked-UNet-Building-Extraction)
   Multi-stage refinement using stacked U-Nets for building extraction.
+
+* [`Res2UNet/`](./Res2UNet)
+  A deep residual variant of U-Net designed for enhanced feature learning.
 
 * [`UNet_ECBA/`](./UNet_ECBA)
   U-Net augmented with Efficient Channel and Batch Attention modules.
